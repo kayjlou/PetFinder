@@ -36,4 +36,12 @@ img {
   width: 20vw;
 }
 
+li {
+  margin-right: 15px;
+}
+
+.brand-logo {
+  margin-left: 20px;
+}
+
 /*  */
