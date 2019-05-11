@@ -5,7 +5,7 @@ module.exports = function(app) {
   //Handles when users visit a page
 
   //When user visits friends page it displays json results
-  app.get("/api/friends", (req, res) => {});
+  // app.get("/api/friends", (req, res) => {});
 
   //When user goes to survey page it displays survey
   app.get("/survey", (req, res) => {
@@ -15,6 +15,7 @@ module.exports = function(app) {
 
   //Default page goes to home if no matching route is found
   app.get("*", (req, res) => {
+    console.log("Page not found going home");
     res.sendFile(join(__dirname, "/../public/home.html"));
   });
 };
