@@ -1,9 +1,11 @@
 const express = require("express");
 const { join } = require("path");
-const bodyParser = require("body-parser");
-const routes = require("./routes");
+// const bodyParser = require("body-parser");
+// const routes = require("./routes");
 
 const app = express();
+
+const PORT = process.env.PORT || 8080;
 
 app.use(express.static(join(__dirname, "/public")));
 app.use(express.urlencoded({ extended: true }));
@@ -14,6 +16,8 @@ app.use(express.json());
 require("./app/routing/apiRoutes.js")(app);
 require("./app/routing/htmlRoutes.js")(app);
 
-routes(app);
-
-app.listen(process.env.PORT || 3000);
+// routes(app);
+//Listen on port and log out link to click
+app.listen(PORT, () => {
+  console.log(`Listening on http://localhost:${PORT}`);
+});
