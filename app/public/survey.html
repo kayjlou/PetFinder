@@ -14,7 +14,7 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../assets/style.css" />
   </head>
   <body>
     <nav>
@@ -35,14 +35,14 @@
         </h5>
       </div>
       <!-- Pet or User input -->
-      <div class="row">
+      <div class="input-div">
         <form class="col s12">
           <!-- Name Input -->
           <div class="row">
             <div class="input-field col s6">
               <input
                 placeholder="Placeholder"
-                id="name"
+                id="newName"
                 type="text"
                 class="validate"
               />
@@ -54,7 +54,7 @@
             <div class="input-field col s6">
               <input
                 placeholder="Placeholder"
-                id="name"
+                id="newImage"
                 type="text"
                 class="validate"
               />
@@ -64,7 +64,72 @@
         </form>
       </div>
       <!-- Survey Begins -->
-      <div class="survey"></div>
+      <div class="survey">
+        <!--Survey questions -->
+
+        <h5><strong>Question 1</strong></h5>
+        <p>I continuously seek adventure</p>
+        <select data-placeholder="" class="browser-default" id="q1">
+          <option value="">Choose an option</option>
+          <option value="1">1 (Strongly Disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (Strongly Agree)</option>
+        </select>
+
+        <h5><strong>Question 2</strong></h5>
+        <p>I am easy-going and laid back</p>
+        <select data-placeholder="" class="browser-default" id="q2">
+          <option value="">Choose an option</option>
+          <option value="1">1 (Strongly Disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (Strongly Agree)</option>
+        </select>
+        <!-- Submit Button -->
+        <div>
+          <button type="submit" class="btn btn-primary submit" id="submit">
+            Submit
+          </button>
+        </div>
+      </div>
     </div>
+    <script>
+      document.querySelector("#submit").addEventListener("click", e => {
+        e.preventDefault();
+
+        //Form Validation
+        // validateForm=()=>{
+        let isValid = true;
+        //   document.querySelector
+        // }
+        // if (isValid) {
+        //   let select = document.querySelector;
+        //   let newUser = {
+        //     name: select("#newName").value,
+        //     photo: select("#newImage").value,
+        //     scores: [select("#q1").val(), select("#q2").val()]
+        //   };
+
+        //Post the data to pets file
+        // (fetch)
+        fetch("/api/pets", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            name: document.querySelector("#newName").value,
+            photo: document.querySelector("#newImage").value,
+            scores: [
+              document.querySelector("#q1").value,
+              document.querySelector("#q2").value
+            ]
+          })
+        });
+      });
+    </script>
   </body>
 </html>

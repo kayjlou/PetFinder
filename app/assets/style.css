@@ -44,4 +44,24 @@ li {
   margin-left: 20px;
 }
 
-/*  */
+#info {
+  text-align: center;
+}
+
+.input-div {
+  padding: 20px;
+  margin: auto;
+  margin-top: 30px;
+  width: 50%;
+  text-align: center;
+  border: 3px coral solid;
+}
+
+.survey {
+  width: 50%;
+  margin: auto;
+}
+
+.browser-default {
+  width: 15vw;
+}
