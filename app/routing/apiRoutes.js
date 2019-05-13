@@ -33,18 +33,20 @@ module.exports = function(app) {
 
     let difference;
     //Loops through current pets to get scores
-    for (i = 0; i < pets.length; i++) {
+    for (i = 0; i < 2; i++) {
       let currentPet = pets[i];
       difference = 0;
-      console.log(currentPet.name);
+      // console.log(currentPet.name);
       //check compatability by subtracting each question and then adding together total difference
-      for (let j = 0; j < newUser.scores.length; j++) {
-        let currentPetScore = currentPet.Score;
+      for (let j = 0; j < userScores.length; j++) {
+        let currentPetScore = currentPet.scores;
         let currentUserScore = userScores[j];
         difference += Math.abs(
           parseInt(currentUserScore) - parseInt(currentPetScore)
         );
-        console.log(`Calculating difference`);
+        console.log(
+          `Calculating difference ${currentUserScore} minus ${currentPetScore}`
+        );
         console.log(`The difference is ${difference}`);
         //Set new match info
         if (difference < match.matchDifference) {
