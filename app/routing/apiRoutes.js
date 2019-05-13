@@ -17,7 +17,7 @@ module.exports = function(app) {
 
     //Recieve user values (name, photo and scores)
     let newUser = req.body;
-    let userScores = newUser.scores;
+    let newScores = newUser.scores;
 
     // Parse int scores
     // for (let i = 0; i < newUser.scores.length; i++) {
@@ -31,16 +31,16 @@ module.exports = function(app) {
       matchDifference: 1000
     };
 
-    let difference;
+    let difference = "";
     //Loops through current pets to get scores
-    for (i = 0; i < 2; i++) {
+    for (i = 0; i < pets.length; i++) {
       let currentPet = pets[i];
       difference = 0;
-      // console.log(currentPet.name);
+      console.log(`Running compatibility with ${currentPet.name}`);
       //check compatability by subtracting each question and then adding together total difference
-      for (let j = 0; j < userScores.length; j++) {
-        let currentPetScore = currentPet.scores;
-        let currentUserScore = userScores[j];
+      for (let j = 0; j < newScores.length; j++) {
+        let currentPetScore = currentPet.scores[j];
+        let currentUserScore = newScores[j];
         difference += Math.abs(
           parseInt(currentUserScore) - parseInt(currentPetScore)
         );
