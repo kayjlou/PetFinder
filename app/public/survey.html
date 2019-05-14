@@ -163,7 +163,9 @@
           })
         };
 
-        fetch("/api/pets", myInit);
+        fetch("/api/pets", myInit)
+          .then(showMatch(req.body))
+          .catch(e => console.log(e));
       });
     </script>
   </body>
