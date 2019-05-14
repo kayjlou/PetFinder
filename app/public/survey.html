@@ -15,6 +15,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <link rel="stylesheet" href="../assets/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="../routing/apiRoutes.js"></script>
   </head>
   <body>
     <nav>
@@ -33,6 +35,10 @@
         <h5>
           Please enter in either your name or you pets name along with an image.
         </h5>
+      </div>
+      <div class="matchDiv">
+        <h5 id="matchName"></h5>
+        <div class="image"></div>
       </div>
       <!-- Pet or User input -->
       <div class="input-div">
@@ -142,7 +148,7 @@
 
         //Post the data to pets file
         // (fetch)
-        fetch("/api/pets", {
+        let myInit = {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
@@ -155,7 +161,9 @@
               document.querySelector("#q2").value
             ]
           })
-        });
+        };
+
+        fetch("/api/pets", myInit);
       });
     </script>
   </body>
