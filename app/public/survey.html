@@ -37,10 +37,10 @@
           Please enter in either your name or you pets name along with an image.
         </h5>
       </div>
-      <div class="matchDiv">
-        <h5 id="matchName"></h5>
-        <div class="image"></div>
-      </div>
+      <!-- <div class="matchDiv">
+        <h5 id="match">YOUR NEW MATCH IS: <span id="matchName"></span></h5>
+        <div class="image"><img id="matchImg"></img></div>
+      </div> -->
       <!-- Pet or User input -->
       <div class="input-div">
         <form class="col s12">
@@ -129,45 +129,60 @@
         </div>
       </div>
     </div>
-
-    <script>
-      // document.querySelector("#submit").addEventListener("click", e => {
-      //   e.preventDefault();
-
-        //Form Validation
-        // validateForm=()=>{
-        // let isValid = true;
-        //   document.querySelector
-        // }
-        // if (isValid) {
-        //   let select = document.querySelector;
-        //   let newUser = {
-        //     name: select("#newName").value,
-        //     photo: select("#newImage").value,
-        //     scores: [select("#q1").val(), select("#q2").val()]
-        //   };
-
-        //Post the data to pets file
-        // (fetch)
-        // let myInit = {
-        //   method: "POST",
-        //   headers: {
-        //     "Content-Type": "application/json"
-        //   },
-        //   body: JSON.stringify({
-        //     name: document.querySelector("#newName").value,
-        //     photo: document.querySelector("#newImage").value,
-        //     scores: [
-        //       document.querySelector("#q1").value,
-        //       document.querySelector("#q2").value
-        //     ]
-        //   })
-        // };
-
-        // fetch("/api/pets", myInit)
-        //   .then(showMatch(req.body))
-        //   .catch(e => console.log(e));
-      });
-    </script>
   </body>
 </html>
+<script>
+  const showMatch = newMatch => {
+    console.log("GETTING MATCH!!!!!");
+    console.log(newMatch);
+    //Hide survey
+    document.querySelector(".survey").style.display = "none";
+    document.querySelector("#info").style.display = "none";
+    document.querySelector(".input-div").style.display = "none";
+    document.querySelector("#matchName").innerHTML = `Your match is ${
+      newMatch.name
+    }!`;
+    document.querySelector("#matchImg").setAttribute(src, `${r.photo}`);
+  };
+
+  document.querySelector("#submit").addEventListener("click", e => {
+    e.preventDefault();
+
+    //Form Validation
+    // validateForm=()=>{
+    // let isValid = true;
+    //   document.querySelector
+    // }
+    // if (isValid) {
+    //   let select = document.querySelector;
+    //   let newUser = {
+    //     name: select("#newName").value,
+    //     photo: select("#newImage").value,
+    //     scores: [select("#q1").val(), select("#q2").val()]
+    //   };
+
+    // Post the data to pets file
+    // (fetch)
+
+    fetch("/api/pets", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        name: document.querySelector("#newName").value,
+        photo: document.querySelector("#newImage").value,
+        scores: [
+          document.querySelector("#q1").value,
+          document.querySelector("#q2").value
+        ]
+      })
+    })
+      .then(r => r.json())
+      .then(r => {
+        console.log(`THE NEW MATCH FRONT: ${r.name}`);
+        showMatch(r);
+      });
+    // .catch(e => console.log(e));
+  });
+</script>
