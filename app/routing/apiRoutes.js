@@ -1,6 +1,5 @@
 //Link routes to data
 const pets = require("../data/pets");
-const { getDiff, showMatch } = require("../assets/javascript/app.js");
 
 module.exports = function(app) {
   const getDiff = newUser => {
@@ -38,7 +37,6 @@ module.exports = function(app) {
     return match;
   };
 
-  
   // API GET requests
   // In each of the below cases when a user visits a link
   app.get("/api/pets", (req, res) => {
