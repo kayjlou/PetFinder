@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="../assets/style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="../routing/apiRoutes.js"></script>
+    <script src="../assets/javascript/app.js"></script>
   </head>
   <body>
     <nav>
@@ -25,7 +26,7 @@
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="/home">Home</a></li>
           <li><a href="/survey">Survey</a></li>
-          <li><a href="/api/friends">Pet List</a></li>
+          <li><a href="/api/pets">Pet List</a></li>
         </ul>
       </div>
     </nav>
@@ -130,12 +131,12 @@
     </div>
 
     <script>
-      document.querySelector("#submit").addEventListener("click", e => {
-        e.preventDefault();
+      // document.querySelector("#submit").addEventListener("click", e => {
+      //   e.preventDefault();
 
         //Form Validation
         // validateForm=()=>{
-        let isValid = true;
+        // let isValid = true;
         //   document.querySelector
         // }
         // if (isValid) {
@@ -148,24 +149,24 @@
 
         //Post the data to pets file
         // (fetch)
-        let myInit = {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            name: document.querySelector("#newName").value,
-            photo: document.querySelector("#newImage").value,
-            scores: [
-              document.querySelector("#q1").value,
-              document.querySelector("#q2").value
-            ]
-          })
-        };
+        // let myInit = {
+        //   method: "POST",
+        //   headers: {
+        //     "Content-Type": "application/json"
+        //   },
+        //   body: JSON.stringify({
+        //     name: document.querySelector("#newName").value,
+        //     photo: document.querySelector("#newImage").value,
+        //     scores: [
+        //       document.querySelector("#q1").value,
+        //       document.querySelector("#q2").value
+        //     ]
+        //   })
+        // };
 
-        fetch("/api/pets", myInit)
-          .then(showMatch(req.body))
-          .catch(e => console.log(e));
+        // fetch("/api/pets", myInit)
+        //   .then(showMatch(req.body))
+        //   .catch(e => console.log(e));
       });
     </script>
   </body>
