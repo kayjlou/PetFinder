@@ -9,18 +9,15 @@ module.exports = function(app) {
 
   //When user goes to survey page it displays survey
   app.get("/survey", (req, res) => {
-    console.log("Retrieving survey");
     res.sendFile(join(__dirname, "/../public/survey.html"));
   });
 
   //When user clicks on home button bring to home
   app.get("/home", (req, res) => {
-    console.log("Just hold on we going home");
     res.sendFile(join(__dirname, "/../public/home.html"));
   });
   //Default page goes to home if no matching route is found
   app.get("*", (req, res) => {
-    console.log("Page not found going home");
     res.sendFile(join(__dirname, "/../public/home.html"));
   });
 };
