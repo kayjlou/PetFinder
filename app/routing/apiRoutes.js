@@ -24,15 +24,15 @@ module.exports = function (app) {
       //loop through pets and compare scores to those of the new user
       for (j = 0; j < userScores.length; j++) {
         //at same index compares the numbers
-        if (userScores[j] !== pets[i].scores[j]) {
-          //if there is a difference push it into the array
-          diffArr.push(difference(userScores[j], pets[i].scores[j]))
-          console.log(diffArr)
-        }
+
+        //if there is a difference push it into the array
+        diffArr.push(difference(userScores[j], pets[i].scores[j]))
+        console.log(diffArr)
       }
       let sum = diffArr.reduce(function (a, b) {
         return a + b
       })
+
       //compare the difference to the pre set difference 
       if (sum < match.matchDifference) {
         match.name = pets[i].name

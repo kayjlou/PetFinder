@@ -2,7 +2,7 @@ const pets = [
   {
     name: "Mila",
     photo:
-      "mila.jpeg",
+      "../assets/images/mila.jpeg",
     scores: [5, 1, 5]
   },
   {
@@ -26,7 +26,7 @@ const pets = [
   {
     name: "Bear",
     photo:
-      "bear.jpg",
+      "../assets/images/bear.jpg",
     scores: [2, 5, 5]
   },
   {
