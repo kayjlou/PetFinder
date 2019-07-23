@@ -1,7 +1,7 @@
 //Link routes to data
 const pets = require("../data/pets");
 
-module.exports = function(app) {
+module.exports = function (app) {
   const getDiff = newUser => {
     //Initialize match object
     let match = {
