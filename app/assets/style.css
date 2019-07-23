@@ -27,13 +27,15 @@
 }
 
 .animals {
-  width: 50%;
+  position: fixed;
+  bottom: 55px;
+  width: 100%;
   margin: auto;
   text-align: center;
 }
 
 img {
-  width: 20vw;
+  width: 25vw;
 }
 
 li {
