@@ -3,40 +3,48 @@ const pets = require("../data/pets");
 
 module.exports = function (app) {
   const getDiff = newUser => {
-    //Initialize match object
+    // //Initialize match object
     let match = {
       name: "",
       photo: "",
       matchDifference: 1000
     };
     console.log(`The new user we are finding match for is: ${newUser.name}`);
-    //Asign score variable
-    let newScores = newUser.scores;
 
-    //Loops through current pets to get scores
+    //Define new scores that user just input
+    let userScores = newUser.scores.map(num => parseInt(num))
+    console.log(userScores)
+
+    //calculate difference between two values
+    let difference = (a, b) => { return Math.abs(a - b) }
+    //loop through existing pets
     for (i = 0; i < pets.length; i++) {
-      let currentPet = pets[i];
-      difference = 0;
-      console.log(`Running compatibility with ${currentPet.name}`);
-
-      // /check compatability by subtracting each question and then adding together total difference
-      for (let j = 0; j < newScores.length; j++) {
-        let currentPetScore = currentPet.scores[j];
-        let currentUserScore = newScores[j];
-        difference += Math.abs(
-          parseInt(currentUserScore) - parseInt(currentPetScore)
-        );
+      //defined array to hold difference between two arrays
+      let diffArr = []
+      //loop through pets and compare scores to those of the new user
+      for (j = 0; j < userScores.length; j++) {
+        //at same index compares the numbers
+        if (userScores[j] !== pets[i].scores[j]) {
+          //if there is a difference push it into the array
+          diffArr.push(difference(userScores[j], pets[i].scores[j]))
+          console.log(diffArr)
+        }
       }
-      //Set new match info with the lowest difference
-      if (difference < match.matchDifference) {
-        match.name = currentPet.name;
-        match.photo = currentPet.photo;
-        console.log(`The new match is ${match.name}`);
+      let sum = diffArr.reduce(function (a, b) {
+        return a + b
+      })
+      //compare the difference to the pre set difference 
+      if (sum < match.matchDifference) {
+        match.name = pets[i].name
+        match.photo = pets[i].photo
+        match.matchDifference = sum
+        console.log(`New match is ${match.name}`)
+        console.log(match.matchDifference)
       }
     }
-    return match;
-  };
+    return match
 
+  }
   // API GET requests
   // In each of the below cases when a user visits a link
   app.get("/api/pets", (req, res) => {

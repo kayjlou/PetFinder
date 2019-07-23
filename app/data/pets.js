@@ -1,36 +1,36 @@
 const pets = [
   {
-    name: "Ahmed",
+    name: "Mila",
     photo:
-      "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+      "mila.jpeg",
     scores: [5, 1, 5]
   },
   {
-    name: "Bomb",
+    name: "Frank",
     photo:
       "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
     scores: [2, 5, 4]
   },
   {
-    name: "Bomb",
+    name: "Bubby",
     photo:
       "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
     scores: [2, 5, 6]
   },
   {
-    name: "Bomb",
+    name: "Callie",
     photo:
       "https://secure.img1-fg.wfcdn.com/im/54313211/resize-h600%5Ecompr-r85/4307/43074644/Sleeping++French+Bulldog+Puppy+Statue.jpg",
-    scores: [2, 5, 6]
+    scores: [2, 5, 1]
   },
   {
-    name: "Bomb",
+    name: "Bear",
     photo:
-      "https://secure.img1-fg.wfcdn.com/im/54313211/resize-h600%5Ecompr-r85/4307/43074644/Sleeping++French+Bulldog+Puppy+Statue.jpg",
+      "bear.jpg",
     scores: [2, 5, 5]
   },
   {
-    name: "Bomb",
+    name: "Lucy",
     photo:
       "https://secure.img1-fg.wfcdn.com/im/54313211/resize-h600%5Ecompr-r85/4307/43074644/Sleeping++French+Bulldog+Puppy+Statue.jpg",
     scores: [2, 5, 5]
