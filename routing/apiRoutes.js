@@ -1,5 +1,5 @@
 //Link routes to data
-const pets = require("../data/pets");
+const pets = require("../public/data/pets.js");
 
 module.exports = function (app) {
   const getDiff = newUser => {
